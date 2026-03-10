@@ -1,0 +1,15 @@
+# Employee Performance Tracker - Dependencies
+
+# Database connectivity
+pymongo>=4.6.0        # MongoDB driver for Python
+
+# Web Framework
+Flask>=3.0.0          # Web framework for UI
+Werkzeug>=3.0.0       # WSGI utilities
+
+# Testing
+pytest>=8.0.0         # Testing framework
+pytest-cov>=4.1.0     # Coverage reporting for pytest
+
+# Data analysis (optional, for reporting)
+# pandas>=2.0.0       # Uncomment if advanced data analysis is needed
