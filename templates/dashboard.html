@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Employee Management System{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1><i class="bi bi-speedometer2"></i> Dashboard</h1>
+        <span class="badge bg-primary">{{ session.user.role }}</span>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-md-3">
+            <div class="card stat-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted mb-2">Total Employees</h6>
+                            <h2 class="mb-0">{{ stats.total_employees or 0 }}</h2>
+                        </div>
+                        <div class="stat-icon bg-primary">
+                            <i class="bi bi-people"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card stat-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted mb-2">Total Projects</h6>
+                            <h2 class="mb-0">{{ stats.total_projects or 0 }}</h2>
+                        </div>
+                        <div class="stat-icon bg-success">
+                            <i class="bi bi-folder"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card stat-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted mb-2">Active Projects</h6>
+                            <h2 class="mb-0">{{ stats.active_projects or 0 }}</h2>
+                        </div>
+                        <div class="stat-icon bg-warning">
+                            <i class="bi bi-lightning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card stat-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted mb-2">Departments</h6>
+                            <h2 class="mb-0">{{ stats.departments or 0 }}</h2>
+                        </div>
+                        <div class="stat-icon bg-info">
+                            <i class="bi bi-diagram-3"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0"><i class="bi bi-people"></i> Quick Actions - Employees</h5>
+                </div>
+                <div class="card-body">
+                    <a href="{{ url_for('employees') }}" class="btn btn-outline-primary w-100 mb-2">
+                        <i class="bi bi-list"></i> View All Employees
+                    </a>
+                    <a href="{{ url_for('add_employee_route') }}" class="btn btn-primary w-100 mb-2">
+                        <i class="bi bi-plus-circle"></i> Add New Employee
+                    </a>
+                    <a href="{{ url_for('add_review_route') }}" class="btn btn-outline-success w-100">
+                        <i class="bi bi-star"></i> Add Performance Review
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0"><i class="bi bi-folder"></i> Quick Actions - Projects</h5>
+                </div>
+                <div class="card-body">
+                    <a href="{{ url_for('projects') }}" class="btn btn-outline-success w-100 mb-2">
+                        <i class="bi bi-list"></i> View All Projects
+                    </a>
+                    <a href="{{ url_for('add_project_route') }}" class="btn btn-success w-100">
+                        <i class="bi bi-plus-circle"></i> Add New Project
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}Reports - Employee Management System{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="mb-4">
+        <h1><i class="bi bi-file-earmark-text"></i> Reports</h1>
+        <p class="text-muted">Generate comprehensive reports for analysis and decision-making</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="stat-icon bg-primary me-3">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <div>
+                            <h5 class="card-title mb-0">Employee-Project Report</h5>
+                            <small class="text-muted">View all employee assignments</small>
+                        </div>
+                    </div>
+                    <p class="card-text">
+                        Comprehensive report showing all employees, their assigned projects, roles, and assignment dates.
+                    </p>
+                    <a href="{{ url_for('employee_projects_report') }}" class="btn btn-primary">
+                        <i class="bi bi-file-text"></i> Generate Report
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="stat-icon bg-success me-3">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <div>
+                            <h5 class="card-title mb-0">Department Summary</h5>
+                            <small class="text-muted">Department-wise statistics</small>
+                        </div>
+                    </div>
+                    <p class="card-text">
+                        Summary of employees by department, including headcount and project assignments.
+                    </p>
+                    <a href="{{ url_for('department_summary_report') }}" class="btn btn-success">
+                        <i class="bi bi-file-text"></i> Generate Report
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="stat-icon bg-warning me-3">
+                            <i class="bi bi-folder-fill"></i>
+                        </div>
+                        <div>
+                            <h5 class="card-title mb-0">Project Status Report</h5>
+                            <small class="text-muted">Project overview and status</small>
+                        </div>
+                    </div>
+                    <p class="card-text">
+                        Detailed report of all projects with their current status, team size, and timelines.
+                    </p>
+                    <a href="{{ url_for('project_status_report') }}" class="btn btn-warning">
+                        <i class="bi bi-file-text"></i> Generate Report
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="stat-icon bg-info me-3">
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div>
+                            <h5 class="card-title mb-0">Performance Summary</h5>
+                            <small class="text-muted">Individual employee reviews</small>
+                        </div>
+                    </div>
+                    <p class="card-text">
+                        View detailed performance summaries for individual employees including ratings and reviews.
+                    </p>
+                    <a href="{{ url_for('employees') }}" class="btn btn-info">
+                        <i class="bi bi-person"></i> Select Employee
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-header bg-white">
+            <h5 class="mb-0"><i class="bi bi-info-circle"></i> Report Information</h5>
+        </div>
+        <div class="card-body">
+            <h6>Available Reports:</h6>
+            <ul>
+                <li><strong>Employee-Project Report:</strong> Shows all employee-project assignments with roles and dates</li>
+                <li><strong>Department Summary:</strong> Provides department-wise employee count and project distribution</li>
+                <li><strong>Project Status Report:</strong> Lists all projects with status, team size, and timeline information</li>
+                <li><strong>Performance Summary:</strong> Individual employee performance reviews with ratings and feedback</li>
+            </ul>
+            
+            <h6 class="mt-3">Export Options:</h6>
+            <p class="mb-0">
+                <i class="bi bi-info-circle text-info"></i> 
+                Reports can be exported to CSV format for further analysis in Excel or other tools.
+                Use the CLI interface for CSV export functionality.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
